@@ -1,0 +1,31 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot by-Suraj</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="chat-container">
+    <div id="messages"></div>
+
+    <form id="message-form">
+      <input type=" text" id="message-input" placeholder="Message Bot..." autocomplete="off" />
+      <button type="submit">Send</button>
+
+    </form>
+    <a href="/fetch">
+      <button>get chat data </button>
+    </a>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
