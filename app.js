@@ -1,4 +1,3 @@
-// app.js
 
 require("dotenv").config();
 const express = require("express");
@@ -8,6 +7,8 @@ const mongoose = require('mongoose');
 const socketIO = require("socket.io");
 const { Configuration, OpenAIApi } = require("openai");
 const { MongoClient } = require('mongodb');
+
+
 
 
 const app = express();
@@ -25,6 +26,7 @@ mongoose.connect(url);
 
 
 // creating a conversation schema
+// it can be created in a new file
 const conversationSchema = {
   role: String,
   msg: String,
@@ -51,7 +53,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 
-
+// fetch request to req the conversation data from the database
 app.get('/fetch', async (req, res) => {
   try {
     const data = await Conver.find({});
@@ -65,13 +67,16 @@ app.get('/fetch', async (req, res) => {
 
 
 io.on("connection", async (socket) => {
-  // console.log(socket)      // a large object 
+  
+  console.log(`New user ki id hai ${socket.id}`);
 
-  console.log(`New user connected with id ${socket.id}`);
-
-  // Initialize the conversation history
+  
   const conversationHistory = [];
 
+
+
+
+  
 
   // EVENTS ###################-----> 
 
